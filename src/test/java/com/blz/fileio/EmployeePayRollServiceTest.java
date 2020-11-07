@@ -2,6 +2,7 @@ package com.blz.fileio;
 
 import java.util.Arrays;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class EmployeePayRollServiceTest {
@@ -13,6 +14,9 @@ public class EmployeePayRollServiceTest {
 		EmployeePayrollService empPayrollService;
 		empPayrollService = new EmployeePayrollService(Arrays.asList(arrayofEmps));
 		empPayrollService.writeEmployeePayrollData(com.blz.fileio.EmployeePayrollService.IOService.FILE_IO);
+		empPayrollService.printData(com.blz.fileio.EmployeePayrollService.IOService.FILE_IO);
+		long entries = empPayrollService.countEntries(com.blz.fileio.EmployeePayrollService.IOService.FILE_IO);
+		Assert.assertEquals(2, entries);
 	}
 
 }
