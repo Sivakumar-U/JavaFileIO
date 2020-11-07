@@ -19,4 +19,12 @@ public class EmployeePayRollServiceTest {
 		Assert.assertEquals(2, entries);
 	}
 
+	@Test
+	public void givenFileOnReadingFromFileShouldMatchEmployeeCount() {
+		EmployeePayrollService empPayrollService = new EmployeePayrollService();
+		empPayrollService.readEmployeePayRollFileData(com.blz.fileio.EmployeePayrollService.IOService.FILE_IO);
+		long entries = empPayrollService.countEntries(com.blz.fileio.EmployeePayrollService.IOService.FILE_IO);
+		Assert.assertEquals(2, entries);
+	}
+
 }
